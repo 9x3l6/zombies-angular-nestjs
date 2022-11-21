@@ -1,5 +1,17 @@
 # ZombiesAngularNestjs
 
+### Home page
+
+![home page](./screenshots/home.png)
+
+### Videos page
+
+![videos page](./screenshots/videos.png)
+
+### Video page
+
+![video page](./screenshots/video.png)
+
 [https://stackblitz.com/edit/angular-zombies](https://stackblitz.com/edit/angular-zombies)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
