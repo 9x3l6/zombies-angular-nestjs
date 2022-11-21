@@ -3,6 +3,7 @@
 ### Home page
 
 ![home page](./screenshots/home.png)
+![posts](./screenshots/posts.png)
 
 ### Videos page
 
