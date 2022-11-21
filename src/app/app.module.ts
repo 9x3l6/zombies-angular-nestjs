@@ -8,7 +8,7 @@ import { VgControlsModule } from 'ngx-videogular';
 import { VgOverlayPlayModule } from 'ngx-videogular';
 import { VgBufferingModule } from 'ngx-videogular';
 
-// import { MarkdownModule } from 'ngx-markdown'; 
+import { MarkdownModule } from 'ngx-markdown'; 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,6 +27,8 @@ import { PopularChannelsComponent } from './sections/popular-channels/popular-ch
 import { TrustedWebsitesComponent } from './sections/trusted-websites/trusted-websites.component';
 import { MusicVideosComponent } from './sections/music-videos/music-videos.component';
 import { VideoPlayerComponent } from './video-player/video-player.component';
+import { PostPageComponent } from './pages/post-page/post-page.component';
+import { VideoPageComponent } from './pages/video-page/video-page.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { VideoPlayerComponent } from './video-player/video-player.component';
     WebsitesPageComponent,
     MusicPageComponent,
     CategoryPageComponent,
+    PostPageComponent,
+    VideoPageComponent,
     PsychopathsComponent,
     ZombiesComponent,
     IntroComponent,
@@ -45,12 +49,12 @@ import { VideoPlayerComponent } from './video-player/video-player.component';
     PopularChannelsComponent,
     TrustedWebsitesComponent,
     MusicVideosComponent,
-    VideoPlayerComponent
+    VideoPlayerComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule, 
-    // MarkdownModule.forRoot({ loader: HttpClient, sanitize: SecurityContext.NONE }),
+    MarkdownModule.forRoot({ loader: HttpClient, sanitize: SecurityContext.NONE }),
     AppRoutingModule,
     VgCoreModule,
     VgControlsModule,

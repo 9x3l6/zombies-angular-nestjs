@@ -7,14 +7,19 @@ import { ChannelsPageComponent } from './pages/channels-page/channels-page.compo
 import { WebsitesPageComponent } from './pages/websites-page/websites-page.component';
 import { MusicPageComponent } from './pages/music-page/music-page.component';
 import { CategoryPageComponent } from './pages/category-page/category-page.component';
+import { PostPageComponent } from './pages/post-page/post-page.component';
+import { VideoPageComponent } from './pages/video-page/video-page.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'videos', component: VideosPageComponent },
+  { path: 'video/:link', component: VideoPageComponent },
+  { path: 'post/:link', component: PostPageComponent },
   { path: 'channels', component: ChannelsPageComponent },
   { path: 'websites', component: WebsitesPageComponent },
   { path: 'music', component: MusicPageComponent },
   { path: 'categories', component: CategoryPageComponent },
+  { path: '**', component: HomePageComponent },
 ];
 
 @NgModule({
