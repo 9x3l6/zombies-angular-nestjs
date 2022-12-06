@@ -7,13 +7,16 @@ import {
   Patch,
   Post,
   Query,
-  NotFoundException,
 } from '@nestjs/common';
+import { MusicService } from 'src/music/music.service';
 import { VideosService } from './videos.service';
 
 @Controller('videos')
 export class VideosController {
-  constructor(private readonly videosService: VideosService) {}
+  constructor(
+    private readonly videosService: VideosService,
+    private readonly musicService: MusicService,
+  ) {}
 
   @Get()
   async findAll(@Query() paginationQuery) {
@@ -22,10 +25,12 @@ export class VideosController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    let video = this.videosService.findOne(id);
-    // if (!video) {
-    //   throw new NotFoundException(`Video #${id} not found`);
-    // }
+    let video;
+    try {
+      video = this.videosService.findOne(id);
+    } catch (error) {
+      video = this.musicService.findOne(id);
+    }    
     return video;
   }
 

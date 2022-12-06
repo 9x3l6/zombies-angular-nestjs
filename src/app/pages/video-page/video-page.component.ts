@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { VideosService } from 'src/app/video/videos.service';
-import { MusicService } from 'src/app/music.service';
+import { MusicService } from 'src/app/music/music.service';
 
 @Component({
   selector: 'app-video-page',
@@ -17,7 +17,7 @@ export class VideoPageComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private videoService: VideosService,
-    // private musicService: MusicService,
+    private musicService: MusicService,
   ) { }
 
   ngOnInit(): void {
@@ -26,7 +26,12 @@ export class VideoPageComponent implements OnInit {
 
     this.videoService.getVideo(link).subscribe(vid => {
       this.video = vid;
-    })
+    });
+    if ( ! this.video ) {
+      this.musicService.getVideo(link).subscribe(vid => {
+        this.video = vid;
+      });
+    }
 
     // if (!this.video) {
     //   this.router.navigate(['/not-found']);

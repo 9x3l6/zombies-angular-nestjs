@@ -11,7 +11,7 @@ import {
 } from '@nestjs/common';
 import { MusicService } from './music.service';
 
-@Controller('videos')
+@Controller('music')
 export class MusicController {
   constructor(private readonly musicService: MusicService) {}
 
@@ -23,9 +23,9 @@ export class MusicController {
   @Get(':id')
   findOne(@Param('id') id: string) {
     let video = this.musicService.findOne(id);
-    // if (!video) {
-    //   throw new NotFoundException(`Video #${id} not found`);
-    // }
+    if (!video) {
+      throw new NotFoundException(`Video #${id} not found`);
+    }
     return video;
   }
 

@@ -126,6 +126,7 @@ export class Seed1670136494446 implements MigrationInterface {
     }
   
     public async down(queryRunner: QueryRunner): Promise<void> {
+      await queryRunner.query(`DELETE FROM music`);
       await queryRunner.query(`DELETE FROM videos`);
       await queryRunner.query(`DELETE FROM websites`);
       await queryRunner.query(`DELETE FROM channels`);

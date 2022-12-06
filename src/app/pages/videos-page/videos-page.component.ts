@@ -12,14 +12,12 @@ import { VideosService } from 'src/app/video/videos.service';
 export class VideosPageComponent implements OnInit {
   videos: any | undefined;
 
-  constructor(private videoService: VideosService) {
-    
-  }
+  constructor(private videoService: VideosService) { }
 
   ngOnInit(): void {
     this.videoService.getVideos().subscribe(videos => {
       this.videos = videos;
-    })
+    });
   }
 
 }
