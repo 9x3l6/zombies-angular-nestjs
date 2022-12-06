@@ -1,5 +1,3 @@
-# Apple Computer Steve Jobs & Steve Wozniak Exposed As Satanic Freemasons
-
 [embed_video id=260]
 
 Would you believe it if I told you all of them are Freemasons? RV Truth, is a great channel to learn truthful information from.

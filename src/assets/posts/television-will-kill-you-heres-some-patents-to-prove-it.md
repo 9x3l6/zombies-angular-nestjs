@@ -1,5 +1,3 @@
-# Television will kill you. Here's some patents to prove it!
-
 [embed_video id=242]
 
 Growing up did you have grandparents that would turn off the TV when they come to visit? I did! Looking back now, I can remember they knew something I didn't know. Television is a mass mind control weapon!

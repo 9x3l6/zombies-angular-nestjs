@@ -1,5 +1,3 @@
-# Injectable Electronic Devices - HYDRA ~ Dr. Carrie Madej - LINKS TO PATENTS (PROOF) IN THE DESCRIPTION BELOW 👇
-
 [embed_video id=270]
 
 "OPERATION LOCKSTEP" Rockefeller Foundation. Plandemic Blueprint From 2010..   you might want to read that one!

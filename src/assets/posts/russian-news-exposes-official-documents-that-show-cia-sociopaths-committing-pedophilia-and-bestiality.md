@@ -1,5 +1,3 @@
-# Russian News Exposes Official Documents That Show CIA Sociopaths Committing Pedophilia and Bestiality
-
 [embed_video id="122"]
 
 They want you to think they are doing good things, but really what they are doing is conspiring against you and everyone you know as they do evil wicked things.

@@ -9,6 +9,7 @@ import { MusicPageComponent } from './pages/music-page/music-page.component';
 import { CategoryPageComponent } from './pages/category-page/category-page.component';
 import { PostPageComponent } from './pages/post-page/post-page.component';
 import { VideoPageComponent } from './pages/video-page/video-page.component';
+import { MissingPageComponent } from './pages/missing-page/missing-page.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -19,7 +20,7 @@ const routes: Routes = [
   { path: 'websites', component: WebsitesPageComponent },
   { path: 'music', component: MusicPageComponent },
   { path: 'categories', component: CategoryPageComponent },
-  { path: '**', component: HomePageComponent },
+  { path: '**', component: MissingPageComponent },
 ];
 
 @NgModule({

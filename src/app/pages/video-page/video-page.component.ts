@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
-import { Video } from '../../videos';
-import videos from 'api/data/videos.data.json';
-import { VideosService } from 'src/app/videos.service';
+import { VideosService } from 'src/app/video/videos.service';
+import { MusicService } from 'src/app/music.service';
 
 @Component({
   selector: 'app-video-page',
@@ -14,15 +13,24 @@ export class VideoPageComponent implements OnInit {
 
   video: any | undefined;
 
-  constructor(private router: Router, private route: ActivatedRoute, private videoService: VideosService) { }
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private videoService: VideosService,
+    // private musicService: MusicService,
+  ) { }
 
   ngOnInit(): void {
     const routeParams = this.route.snapshot.paramMap;
     const link = routeParams.get('link');
 
-    this.video = this.videoService.getVideo(link)
-      // .subscribe((data: any) => this.video = data);
- 
+    this.videoService.getVideo(link).subscribe(vid => {
+      this.video = vid;
+    })
+
+    // if (!this.video) {
+    //   this.router.navigate(['/not-found']);
+    // }
   }
 
 }

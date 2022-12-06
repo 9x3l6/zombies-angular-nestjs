@@ -1,14 +1,22 @@
-<ul role="list" class="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8">
-  <li class="relative" *ngFor="let video of videos.reverse()">
-    <a [routerLink]="['/video', video.link]" ariaCurrentWhenActive="page">
-      <div class="group aspect-w-10 aspect-h-7 block w-full overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
-        <img [src]="video.image_url" alt="" class="pointer-events-none object-cover group-hover:opacity-75">
-        <button type="button" class="absolute inset-0 focus:outline-none">
-          <span class="sr-only">Watch video {{video.title}}</span>
-        </button>
-      </div>
-      <p class="pointer-events-none mt-2 block truncate text-sm font-medium text-gray-900">{{video.title}}</p>
-      <p class="pointer-events-none block text-sm font-medium text-gray-500">{{video.duration}}</p>
-    </a>
-  </li>
-</ul>
+<main class="lg:relative bg-black py-8">
+  <div class="mx-auto w-full max-w-6xl text-center my-8 lg:text-left">
+    <h2 class="text-center text-6xl font-bold my-8 text-[#DEAD00]">Educate Yourself</h2>
+    <p class="mx-auto w-full max-w-4xl text-white mb-12 text-2xl">
+      Please watch these videos and share them with others. There's lots of other good videos not listed here you should want to seek them out to know whats up. The fight for humanity is real!
+    </p>
+    <ul role="list" class="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8">
+      <li class="relative" *ngFor="let video of videos">
+        <a [routerLink]="['/video', video.link]" ariaCurrentWhenActive="page">
+          <div class="group aspect-w-10 aspect-h-7 block w-full overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
+            <img [src]="video.image_url" alt="" class="pointer-events-none object-cover group-hover:opacity-75">
+            <button type="button" class="absolute inset-0 focus:outline-none">
+              <span class="sr-only">Watch video {{video.title}}</span>
+            </button>
+          </div>
+          <p class="pointer-events-none mt-2 block font-extralight text-sm font-small text-white">{{video.title}}</p>
+          <!-- <p class="pointer-events-none block text-sm font-medium text-gray-500">{{video.duration}}</p> -->
+        </a>
+      </li>
+    </ul>
+  </div>
+</main>

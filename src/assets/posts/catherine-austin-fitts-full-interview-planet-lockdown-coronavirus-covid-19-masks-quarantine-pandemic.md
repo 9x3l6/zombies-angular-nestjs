@@ -1,5 +1,3 @@
-# Catherine Austin Fitts Full Interview Planet Lockdown Coronavirus Covid-19 Masks Quarantine Pandemic
-
 [embed_video id=117]
 
 This video interview helps you understand what the bigger picture looks like.

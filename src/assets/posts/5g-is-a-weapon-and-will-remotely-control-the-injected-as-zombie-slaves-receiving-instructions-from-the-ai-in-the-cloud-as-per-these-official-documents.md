@@ -1,5 +1,3 @@
-# 5G is a weapon and will remotely control the injected as zombie slaves receiving instructions from the AI in the cloud, as per these official documents!
-
 If you are seeing this it means you were able to get around all the censorship they have in place to keep you from hearing the truth. Take this moment to learn from others and to gather sources where to learn more.
 
 This post may take roughly 5 hours to read and watch the videos altogether. 

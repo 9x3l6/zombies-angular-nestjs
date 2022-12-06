@@ -13,6 +13,7 @@ import { MarkdownModule } from 'ngx-markdown';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { MissingPageComponent } from './pages/missing-page/missing-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { VideosPageComponent } from './pages/videos-page/videos-page.component';
 import { ChannelsPageComponent } from './pages/channels-page/channels-page.component';
@@ -29,11 +30,14 @@ import { MusicVideosComponent } from './sections/music-videos/music-videos.compo
 import { VideoPlayerComponent } from './video-player/video-player.component';
 import { PostPageComponent } from './pages/post-page/post-page.component';
 import { VideoPageComponent } from './pages/video-page/video-page.component';
+import { ChannelComponent } from './channel/channel.component';
+import { WebsiteComponent } from './website/website.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
+    MissingPageComponent,
     HomePageComponent,
     VideosPageComponent,
     ChannelsPageComponent,
@@ -50,6 +54,8 @@ import { VideoPageComponent } from './pages/video-page/video-page.component';
     TrustedWebsitesComponent,
     MusicVideosComponent,
     VideoPlayerComponent,
+    ChannelComponent,
+    WebsiteComponent,
   ],
   imports: [
     BrowserModule,

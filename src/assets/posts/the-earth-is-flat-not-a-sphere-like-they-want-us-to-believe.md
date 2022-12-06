@@ -1,5 +1,3 @@
-# The Earth Is Flat Not A Sphere Like They Want Us To Believe
-
 [embed_video id=112]
 
 When they have you not knowing how to use your own senses they can manipulate and control you to do anything they want. They want you to be dumb.

@@ -1,20 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import VideosJSON from '../../../../api/data/videos.data.json'
+import { VideosService } from 'src/app/video/videos.service';
 
-interface VIDEO_URL {
-  location: string;
-  url: string;
-}
-
-interface VIDEO {
-  _link: string;
-  video_id: number;
-  image_url: string;
-  video_urls: [VIDEO_URL];
-  duration: string;
-  categories: [string];
-}
+// import { VIDEO, VIDEO_URL } from 'src/app/video/videos';
 
 @Component({
   selector: 'app-videos-page',
@@ -22,11 +10,16 @@ interface VIDEO {
   styleUrls: ['./videos-page.component.scss']
 })
 export class VideosPageComponent implements OnInit {
-  videos= VideosJSON
+  videos: any | undefined;
 
-  constructor() { }
+  constructor(private videoService: VideosService) {
+    
+  }
 
   ngOnInit(): void {
+    this.videoService.getVideos().subscribe(videos => {
+      this.videos = videos;
+    })
   }
 
 }

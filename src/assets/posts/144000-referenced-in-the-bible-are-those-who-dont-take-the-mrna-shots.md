@@ -1,5 +1,3 @@
-# 144,000 referenced in the Bible are those who DON'T TAKE the mRNA shots
-
 [embed_video id=84]
 
 [embed_video id=1058]

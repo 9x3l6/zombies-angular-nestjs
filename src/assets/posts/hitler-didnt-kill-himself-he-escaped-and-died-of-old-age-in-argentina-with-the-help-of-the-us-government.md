@@ -1,10 +1,8 @@
-# Hitler didn't kill himself! He escaped and died of old age in Argentina with the help of the US government
-
-Part 1
+## Part 1
 
 [embed_video id=250]
 
-Part 2
+## Part 2
 
 [embed_video id=255]
 
