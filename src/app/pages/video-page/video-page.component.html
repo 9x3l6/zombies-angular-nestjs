@@ -7,6 +7,11 @@
       <video controls preload="none" [poster]="video.image_url" >
         <source *ngFor="let url of video.video_urls" [src]="url.url" type="video/mp4" />
       </video>
+      <div class="mx-auto w-full max-w-6xl my-8 lg:text-left">
+        <div class="text-white">
+          <div id="videoDescription" [innerHTML]="video.description"></div>
+        </div>
+      </div>
     </div>
   </div>
 </main>

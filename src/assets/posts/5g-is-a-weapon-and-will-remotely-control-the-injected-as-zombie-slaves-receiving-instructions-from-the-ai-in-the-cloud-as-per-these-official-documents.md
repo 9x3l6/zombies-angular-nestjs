@@ -26,19 +26,19 @@ Please share this with everyone for the love of humanity. Even if you did fall f
 
 62 minutes video downloaded from https://rumble.com/v1i58rv-uncensored-extended-interview-covid-hacks-your-brain-enslavement-through-ai.html
 
-[aiovg_video id=1137]
+[embed_video id=1137]
 
 76 minutes video downloaded from https://rumble.com/v1pg4gf-karen-kingston-uncovers-patents-revealing-cognitive-action-spike-protein-st.html
 
-[aiovg_video id=1152]
+[embed_video id=1152]
 
 49 minutes video downloaded from https://rumble.com/v1qdsv1-uncensored-dr.-ana-the-science-explained-nanotech-in-injections-and-quantum.html
 
-[aiovg_video id=1249]
+[embed_video id=1249]
 
 4 minutes video was downloaded from the video archive https://trootube.net/archived-videos/Jim_Crenshaw/n22wktuxfEW3/In_this_episode_the_Simpsons_tell_us_about_the_zombie_apocalypse_and_human_mad_cow_disease-n22wktuxfEW3
 
-[aiovg_video id=1315]
+[embed_video id=1315]
 
 ![Masterplan of the Wicked](https://fckr.cloud/wp-content/uploads/2022/11/7_A20667_C_C87_B_49_BD_B916_9_D438_E6_E3_ABE_46b917c1fd.png)
 
@@ -124,7 +124,7 @@ You think they spent billions of dollars, forced and coerced people to take part
 
 I understand that this is a lot to take in and would like to recommend next hearing some truth music uploaded by tellmewhatyoulove channel on bitchute https://www.bitchute.com/channel/tellmewhatyoulove/ https://www.youtube.com/channel/UCg4_8m7Dlpi0run1heWvStA/videos or on odysee https://odysee.com/@tellmewhatyoulove:2 or listen to the music here below 🙂
 
-[aiovg_video id=1080]
+[embed_video id=1080]
 
 Those who died will be undead soon, we have to stop the 5G, they want their super soldiers
 
