@@ -5,6 +5,21 @@ export class File extends BaseEntity {
   @PrimaryGeneratedColumn()
   public id: number;
 
+  @Column({ nullable: true })
+  public file_id: number;
+
+  @Column({ nullable: true })
+  public post_id: number;
+
+  @Column({ nullable: true })
+  public title: string;
+
+  @Column({ nullable: true })
+  public link: string;
+
+  @Column({ nullable: true })
+  public url: string;
+
   @Column({ name: 's3_key', nullable: true, type: 'jsonb' })
   public s3Key: string;
 

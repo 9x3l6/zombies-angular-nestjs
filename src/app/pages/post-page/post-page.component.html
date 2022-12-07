@@ -2,9 +2,14 @@
   <div  class="mx-auto w-full max-w-6xl my-8 px-2 lg:px-8 lg:text-left">
     <h1 class="text-[#DEAD00] text-3xl">{{post.data.title}}</h1>
   </div>
-  <div class="mx-auto w-full max-w-6xl my-8 px-2 lg:px-8 lg:text-left">
+  <div *ngIf="post.text" class="mx-auto w-full max-w-6xl my-8 px-2 lg:px-8 lg:text-left">
     <div class="text-white">
       <div id="post" [innerHTML]="post.text"></div>
+    </div>
+  </div>
+  <div *ngElse class="mx-auto w-full max-w-6xl my-8 px-2 lg:px-8 lg:text-left">
+    <div class="text-white">
+      <div id="post" [innerHTML]="post.data.content"></div>
     </div>
   </div>
 </main>

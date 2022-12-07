@@ -8,6 +8,7 @@ import { Music } from "../music/music.entity";
 import * as WPAPI from 'wpapi';
 import * as _ from 'lodash';
 import { Category } from "src/categories/category.entity";
+import { File } from "src/files/files.entity";
 
 function getAll( request ) {
   return request.then(function( response ) {
@@ -32,6 +33,25 @@ export class Seed1670136494446 implements MigrationInterface {
   
     public async up(queryRunner: QueryRunner): Promise<void> {
       const wp = await WPAPI.discover('https://fckr.cloud/wp-json/');
+      const files = await getAll( wp.media() )
+      try {
+        await queryRunner.startTransaction();
+        files.map(async post => {
+          await queryRunner.manager.insert(File, {
+            title: post.title.rendered,
+            link: post.slug,
+            file_id: post.id,
+            post_id: post.post,
+            url: post.yoast_head_json.og_url,
+            s3Key: post.media_details.file,
+            mime: post.mime_type,
+          });
+        });
+        await queryRunner.commitTransaction();
+      } catch (error) {
+        await queryRunner.rollbackTransaction();
+        throw error;
+      }
       const posts = await getAll( wp.posts() )
       try {
         await queryRunner.startTransaction();
@@ -45,7 +65,7 @@ export class Seed1670136494446 implements MigrationInterface {
                   date: post.date.split('T')[0].replace(/-/g,'/'),
                   post_id: post.id,
                   image_url: post.yoast_head_json.og_image[0].url,
-                  // content: post.content.rendered,
+                  content: post.content.rendered,
                 });
               break;
             }
@@ -73,34 +93,36 @@ export class Seed1670136494446 implements MigrationInterface {
         await queryRunner.rollbackTransaction();
         throw error;
       }
-      // console.log(categories)
       wp.videos = wp.registerRoute('wp/v2', '/aiovg_videos/(?P<id>)');
       const videos = await getAll( wp.videos() )
+      // console.log(videos)
       try {
         await queryRunner.startTransaction();
         videos.map(async post => {
-          if (post.status == 'publish') {
-            switch(post.type) {
-              case 'aiovg_videos':
-                if (post.aiovg_categories.length === 1 && post.aiovg_categories[0] === MUSIC_CAT) {
-                  await queryRunner.manager.insert(Music, {
-                    title: post.title.rendered,
-                    link: post.slug,
-                    video_id: post.id,
-                    image_url: post.yoast_head_json.og_image[0].url,
-                    description: post.content.rendered,
-                  });
-                } else {
-                  await queryRunner.manager.insert(Video, {
-                    title: post.title.rendered,
-                    link: post.slug,
-                    video_id: post.id,
-                    image_url: post.yoast_head_json.og_image[0].url,
-                    description: post.content.rendered,
-                  });
-                }              
-              break;
-            }
+          if (post.aiovg_categories.length === 1 && post.aiovg_categories[0] === MUSIC_CAT) {
+            await queryRunner.manager.insert(Music, {
+              title: post.title.rendered,
+              link: post.slug,
+              video_id: post.id,
+              image_url: post.image, //post.yoast_head_json.og_image[0].url,
+              description: post.content.rendered,
+              duration: post.duration,
+              video_urls: post.mp4.map(url => {
+                return { location: '', url };
+              }),
+            });
+          } else {
+            await queryRunner.manager.insert(Video, {
+              title: post.title.rendered,
+              link: post.slug,
+              video_id: post.id,
+              image_url: post.image, //post.yoast_head_json.og_image[0].url,
+              description: post.content.rendered,
+              duration: post.duration,
+              video_urls: post.mp4.map(url => {
+                return { location: '', url };
+              }),
+            });
           }
         });
         await queryRunner.commitTransaction();
@@ -132,5 +154,6 @@ export class Seed1670136494446 implements MigrationInterface {
       await queryRunner.query(`DELETE FROM channels`);
       await queryRunner.query(`DELETE FROM categories`);
       await queryRunner.query(`DELETE FROM posts`);
+      await queryRunner.query(`DELETE FROM files`);
     }
   }

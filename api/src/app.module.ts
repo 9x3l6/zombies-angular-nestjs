@@ -32,6 +32,8 @@ import { Website } from './websites/website.entity';
 import { Post } from './posts/post.entity';
 import { Channel } from './channels/channel.entity';
 import { MusicModule } from './music/music.module';
+import { File } from './files/files.entity';
+import { Music } from './music/music.entity';
 
 AdminJS.registerAdapter(AdminJSTypeorm)
 
@@ -62,7 +64,11 @@ AdminJS.registerAdapter(AdminJSTypeorm)
                 navigation: {
                   name: 'Admin',
                   icon: 'User',
-                }
+                },
+                listProperties: ['id', 'username', 'email', 'isAdmin'],
+                filterProperties: ['id', 'username', 'email', 'isAdmin'],
+                editProperties: ['username', 'email', 'isAdmin'],
+                showProperties: ['id', 'username', 'email', 'isAdmin'],
               },
               features: [
                 passwordsFeature({
@@ -74,14 +80,58 @@ AdminJS.registerAdapter(AdminJSTypeorm)
               })
               ]
             },
+            { resource: File,
+              options: {
+                parent: { name: 'Content' },
+                listProperties: ['url', 's3Key'],
+                filterProperties: ['file_id', 'post_id', 'title', 'link', 'url', 's3Key'],
+                editProperties: ['file_id', 'post_id', 'title', 'link', 'url', 's3Key', 'bucket', 'mime', 'comment'],
+                showProperties: ['id', 'file_id', 'post_id', 'title', 'link', 'url', 's3Key', 'bucket', 'mime', 'comment'],
+              },
+              features: [
+                importExportFeature(),
+              ],
+            },
             { resource: Category,
-              options: { parent: { name: 'Content' } },
+              options: {
+                parent: { name: 'Content' },
+                listProperties: ['id', 'category_id', 'name', 'slug'],
+                filterProperties: ['id', 'category_id', 'name', 'slug'],
+                editProperties: ['category_id', 'name', 'slug', 'description', 'image_url'],
+                showProperties: ['id', 'category_id', 'name', 'slug', 'description', 'image_url'],
+              },
               features: [
                 importExportFeature(),
               ],
             },
             { resource: Post,
-              options: { parent: { name: 'Content' } },
+              options: {
+                parent: { name: 'Content' },
+                listProperties: ['id', 'post_id', 'date', 'title', 'link'],
+                filterProperties: ['id', 'post_id', 'date', 'title', 'link'],
+                editProperties: ['post_id', 'date', 'title', 'link', 'image_url', 'content'],
+                showProperties: ['id', 'post_id', 'date', 'title', 'link', 'image_url', 'content'],
+              },
+              features: [
+                importExportFeature(),
+              ],
+            },
+            { resource: Music,
+              options: { 
+                parent: { name: 'Content' },
+                properties: {
+                  video_urls: {
+                    type: 'mixed',
+                    isArray: true,
+                  },
+                  'video_urls.location': { type: 'string' },
+                  'video_urls.url': { type: 'string' },
+                },
+                listProperties: ['id', 'video_id', 'title', 'link', 'duration'],
+                filterProperties: ['id', 'video_id', 'title', 'link', 'description'],
+                editProperties: ['video_id', 'title', 'link', 'duration', 'description', 'image_url', 'video_urls'],
+                showProperties: ['id', 'video_id', 'title', 'link', 'duration', 'description', 'image_url', 'video_urls'],
+              },
               features: [
                 importExportFeature(),
               ],
@@ -97,19 +147,35 @@ AdminJS.registerAdapter(AdminJSTypeorm)
                   'video_urls.location': { type: 'string' },
                   'video_urls.url': { type: 'string' },
                 },
+                listProperties: ['id', 'video_id', 'title', 'link', 'duration'],
+                filterProperties: ['id', 'video_id', 'title', 'link', 'description'],
+                editProperties: ['video_id', 'title', 'link', 'duration', 'description', 'image_url', 'video_urls'],
+                showProperties: ['id', 'video_id', 'title', 'link', 'duration', 'description', 'image_url', 'video_urls'],
               },
               features: [
                 importExportFeature(),
               ],
             },
             { resource: Channel,
-              options: { parent: { name: 'Content' } },
+              options: {
+                parent: { name: 'Content' },
+                listProperties: ['name', 'url'],
+                filterProperties: ['name', 'url'],
+                editProperties: ['name', 'url', 'image'],
+                showProperties: ['name', 'url', 'image'],
+              },
               features: [
                 importExportFeature(),
               ],
             },
             { resource: Website,
-              options: { parent: { name: 'Content' } },
+              options: {
+                parent: { name: 'Content' },
+                listProperties: ['name', 'url'],
+                filterProperties: ['name', 'url'],
+                editProperties: ['name', 'url'],
+                showProperties: ['name', 'url'],
+              },
               features: [
                 importExportFeature(),
               ],
