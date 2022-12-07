@@ -3,15 +3,50 @@
 ### Home page
 
 ![home page](./screenshots/home.png)
+
+### Posts page
+
 ![posts](./screenshots/posts.png)
+
+### Post page
+
+![post](./screenshots/post.png)
 
 ### Videos page
 
-![videos page](./screenshots/videos.png)
+![videos](./screenshots/videos.png)
 
 ### Video page
 
-![video page](./screenshots/video.png)
+![video](./screenshots/video.png)
+
+### Channels page
+
+![channels](./screenshots/channels.png)
+
+### Websites page
+
+![websites page](./screenshots/websites.png)
+
+### Admin Category
+
+![admin category](./screenshots/admin-category.png)
+
+### Admin Channel
+
+![admin channel](./screenshots/admin-channel.png)
+
+### Admin Post
+
+![admin post](./screenshots/admin-post.png)
+
+### Admin Video
+
+![admin video](./screenshots/admin-video.png)
+
+### Admin Website
+
+![admin website](./screenshots/admin-website.png)
 
 [https://stackblitz.com/edit/angular-zombies](https://stackblitz.com/edit/angular-zombies)
 

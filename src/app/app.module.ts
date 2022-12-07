@@ -8,7 +8,8 @@ import { VgControlsModule } from 'ngx-videogular';
 import { VgOverlayPlayModule } from 'ngx-videogular';
 import { VgBufferingModule } from 'ngx-videogular';
 
-import { MarkdownModule } from 'ngx-markdown'; 
+import { MarkdownModule } from 'ngx-markdown';
+import { NgxGrapesjsModule } from 'ngx-grapesjs';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -32,6 +33,7 @@ import { PostPageComponent } from './pages/post-page/post-page.component';
 import { VideoPageComponent } from './pages/video-page/video-page.component';
 import { ChannelComponent } from './channel/channel.component';
 import { WebsiteComponent } from './website/website.component';
+import { EditorComponent } from './admin/editor/editor.component';
 
 @NgModule({
   declarations: [
@@ -56,11 +58,13 @@ import { WebsiteComponent } from './website/website.component';
     VideoPlayerComponent,
     ChannelComponent,
     WebsiteComponent,
+    EditorComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule, 
     MarkdownModule.forRoot({ loader: HttpClient, sanitize: SecurityContext.NONE }),
+    NgxGrapesjsModule,
     AppRoutingModule,
     VgCoreModule,
     VgControlsModule,
