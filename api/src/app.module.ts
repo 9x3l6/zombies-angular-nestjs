@@ -34,6 +34,7 @@ import { Channel } from './channels/channel.entity';
 import { MusicModule } from './music/music.module';
 import { File } from './files/files.entity';
 import { Music } from './music/music.entity';
+import { EditorModule } from './editor/editor.module';
 
 AdminJS.registerAdapter(AdminJSTypeorm)
 
@@ -214,6 +215,7 @@ AdminJS.registerAdapter(AdminJSTypeorm)
     ChannelsModule,
     PostsModule,
     MusicModule,
+    EditorModule,
 
     
   ],
