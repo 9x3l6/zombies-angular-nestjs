@@ -40,7 +40,7 @@ AdminJS.registerAdapter(AdminJSTypeorm)
 @Module({
   imports: [
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', '..', '..', 'dist', 'zombies-angular-nestjs'),
+      rootPath: join(__dirname, '..', '..', '..', 'app', 'dist', 'zombies-angular-nestjs'),
     }),
     ConfigModule.forRoot({
       isGlobal: true,
