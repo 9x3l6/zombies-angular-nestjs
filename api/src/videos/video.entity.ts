@@ -31,7 +31,7 @@ export class Video extends BaseEntity {
   @Column()
   video_id: string;
 
-  @Column()
+  @Column({ nullable: true })
   image_url: string;
 
   // @Column({ type: 'json', array: false, nullable: true })

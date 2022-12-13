@@ -50,28 +50,35 @@
 
 [https://stackblitz.com/edit/angular-zombies](https://stackblitz.com/edit/angular-zombies)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
+#### Install dependencies and run application
 
-## Development server
+```shell
+cd app && npm install && npm run build
+cd api && npm install && npm run build && npx typeorm migration:run -d dist/typeorm-cli.config && npm run start:dev
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+or run development in docker with docker compose
 
-## Code scaffolding
+```shell
+docker-compose up -d dev
+docker exec zombies_dev npx typeorm migration:run -d dist/typeorm-cli.config
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Access https://localhost:3000 to see website, angular app using nestjs api.
 
-## Build
+Click links on pages to nagivate around the website
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Access Admin https://localhost:3000/admin when no users exist any username and password is valid to login until at least one user exists.
 
-## Running unit tests
+Manage users, categories, posts, videos, channels and websites that show up on the website.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+#### Deployment
 
-## Running end-to-end tests
+Deploy on your server running docker with docker-compose
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```shell
+docker-compose up -d prod
+```
 
-## Further help
+or deploy with terraform to AWS
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

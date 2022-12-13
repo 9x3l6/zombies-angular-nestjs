@@ -100,16 +100,16 @@ export class Seed1670136494446 implements MigrationInterface {
         await queryRunner.startTransaction();
         videos.map(async post => {
           if (post.aiovg_categories.length === 1 && post.aiovg_categories[0] === MUSIC_CAT) {
-            await queryRunner.manager.insert(Music, {
+            post && await queryRunner.manager.insert(Music, {
               title: post.title.rendered,
               link: post.slug,
               video_id: post.id,
               image_url: post.image, //post.yoast_head_json.og_image[0].url,
               description: post.content.rendered,
               duration: post.duration,
-              video_urls: post.mp4.map(url => {
+              video_urls: post.mp4 && post.mp4.map(url => {
                 return { location: '', url };
-              }),
+              }) || [],
             });
           } else {
             await queryRunner.manager.insert(Video, {
@@ -119,9 +119,9 @@ export class Seed1670136494446 implements MigrationInterface {
               image_url: post.image, //post.yoast_head_json.og_image[0].url,
               description: post.content.rendered,
               duration: post.duration,
-              video_urls: post.mp4.map(url => {
+              video_urls: post.mp4 && post.mp4.map(url => {
                 return { location: '', url };
-              }),
+              }) || [],
             });
           }
         });

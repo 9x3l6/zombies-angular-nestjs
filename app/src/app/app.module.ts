@@ -3,13 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
-import { VgCoreModule } from 'ngx-videogular';
-import { VgControlsModule } from 'ngx-videogular';
-import { VgOverlayPlayModule } from 'ngx-videogular';
-import { VgBufferingModule } from 'ngx-videogular';
-
 import { MarkdownModule } from 'ngx-markdown';
-import { NgxGrapesjsModule } from 'ngx-grapesjs';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,12 +22,10 @@ import { AllPostsComponent } from './sections/all-posts/all-posts.component';
 import { PopularChannelsComponent } from './sections/popular-channels/popular-channels.component';
 import { TrustedWebsitesComponent } from './sections/trusted-websites/trusted-websites.component';
 import { MusicVideosComponent } from './sections/music-videos/music-videos.component';
-import { VideoPlayerComponent } from './video-player/video-player.component';
 import { PostPageComponent } from './pages/post-page/post-page.component';
 import { VideoPageComponent } from './pages/video-page/video-page.component';
 import { ChannelComponent } from './channel/channel.component';
 import { WebsiteComponent } from './website/website.component';
-import { EditorComponent } from './admin/editor/editor.component';
 
 @NgModule({
   declarations: [
@@ -55,21 +47,14 @@ import { EditorComponent } from './admin/editor/editor.component';
     PopularChannelsComponent,
     TrustedWebsitesComponent,
     MusicVideosComponent,
-    VideoPlayerComponent,
     ChannelComponent,
     WebsiteComponent,
-    EditorComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule, 
     MarkdownModule.forRoot({ loader: HttpClient, sanitize: SecurityContext.NONE }),
-    NgxGrapesjsModule,
     AppRoutingModule,
-    VgCoreModule,
-    VgControlsModule,
-    VgOverlayPlayModule,
-    VgBufferingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

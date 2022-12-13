@@ -6,11 +6,13 @@ services:
     image:  postgres
     restart: always 
     ports:
-      - "${DATABASE_PORT}:5432"
-    environment:
-      POSTGRES_DB: ${DATABASE_NAME}
-      POSTGRES_USER: ${DATABASE_USERNAME}
-      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      - "5432:5432"
+    env_file:
+      - ./api/.env.docker
+    # environment:
+    #   POSTGRES_DB: ${DATABASE_NAME}
+    #   POSTGRES_USER: ${DATABASE_USERNAME}
+    #   POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
     volumes:
       - ./pgdata:/var/lib/postgresql/data
     networks:
@@ -24,7 +26,7 @@ services:
       dockerfile: ./Dockerfile
     working_dir: /home/node/api
     env_file:
-      - .env.docker
+      - ./api/.env.docker
     command: npm run start:dev #:debug
     depends_on:
       - zombies_db
@@ -34,7 +36,10 @@ services:
     networks:
       - zombies-network
     volumes:
-      - .:/home/node/api
+      - ./api:/home/node/api
+      - ./app:/home/node/app
+      - ./channels.data.json:/home/node/channels.data.json
+      - ./websites.data.json:/home/node/websites.data.json
     restart: unless-stopped
 
 networks:

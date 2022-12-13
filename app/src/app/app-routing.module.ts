@@ -10,7 +10,6 @@ import { CategoryPageComponent } from './pages/category-page/category-page.compo
 import { PostPageComponent } from './pages/post-page/post-page.component';
 import { VideoPageComponent } from './pages/video-page/video-page.component';
 import { MissingPageComponent } from './pages/missing-page/missing-page.component';
-import { EditorComponent } from './admin/editor/editor.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -21,7 +20,6 @@ const routes: Routes = [
   { path: 'websites', component: WebsitesPageComponent },
   { path: 'music', component: MusicPageComponent },
   { path: 'categories', component: CategoryPageComponent },
-  { path: 'admin/editor', component: EditorComponent },
   { path: '**', component: MissingPageComponent },
 ];
 
