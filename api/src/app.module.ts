@@ -4,8 +4,8 @@ import importExportFeature from '@adminjs/import-export';
 import { TypeOrmModule, getRepositoryToken } from '@nestjs/typeorm';
 import { Repository, DataSource } from 'typeorm';
 import * as AdminJSTypeorm from '@adminjs/typeorm';
-import AdminJS from 'adminjs'
-import * as argon2 from 'argon2';
+import AdminJS from 'adminjs';
+import * as bcrypt from 'bcryptjs';
 import passwordsFeature from '@adminjs/passwords';
 import { ConfigModule } from '@nestjs/config';
 import { ServeStaticModule } from '@nestjs/serve-static';
@@ -67,7 +67,7 @@ AdminJS.registerAdapter(AdminJSTypeorm)
                 },
                 listProperties: ['id', 'username', 'email', 'isAdmin'],
                 filterProperties: ['id', 'username', 'email', 'isAdmin'],
-                editProperties: ['username', 'email', 'isAdmin'],
+                // editProperties: ['username', 'email', 'password', 'isAdmin'],
                 showProperties: ['id', 'username', 'email', 'isAdmin'],
               },
               features: [
@@ -76,7 +76,7 @@ AdminJS.registerAdapter(AdminJSTypeorm)
                     encryptedPassword: 'password',
                     password: 'newPassword'
                   },
-                  hash: argon2.hash,
+                  hash: bcrypt.hash,
               })
               ]
             },
@@ -188,7 +188,7 @@ AdminJS.registerAdapter(AdminJSTypeorm)
               return { email: '', username: '', password: '', };
             } else {
               const user = await userRepo.findOne({ where: { email } });
-              if (user && user.isAdmin && await argon2.verify(user.password, password)) {
+              if (user && user.isAdmin && await bcrypt.compareSync(password, user.password)) {
                 return user
               }
             }

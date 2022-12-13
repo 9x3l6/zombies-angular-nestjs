@@ -18,7 +18,7 @@
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
   },
-  "include": ["src"],
+  "include": ["src", "node_modules/adminjs"],
   "exclude": [
     "node_modules",
     "dist",

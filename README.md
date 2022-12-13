@@ -50,11 +50,18 @@
 
 [https://stackblitz.com/edit/angular-zombies](https://stackblitz.com/edit/angular-zombies)
 
-#### Install dependencies and run backend development
+#### Install dependencies and run application
 
 ```shell
 cd app && npm install && npm run build
 cd api && npm install && npm run build && npx typeorm migration:run -d dist/typeorm-cli.config && npm run start:dev
+```
+
+or run development in docker with docker compose
+
+```shell
+docker-compose up -d dev
+docker exec zombies_dev npx typeorm migration:run -d dist/typeorm-cli.config
 ```
 
 Access https://localhost:3000 to see website, angular app using nestjs api.
@@ -64,3 +71,14 @@ Click links on pages to nagivate around the website
 Access Admin https://localhost:3000/admin when no users exist any username and password is valid to login until at least one user exists.
 
 Manage users, categories, posts, videos, channels and websites that show up on the website.
+
+#### Deployment
+
+Deploy on your server running docker with docker-compose
+
+```shell
+docker-compose up -d prod
+```
+
+or deploy with terraform to AWS
+

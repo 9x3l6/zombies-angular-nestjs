@@ -1,48 +1,62 @@
-###################
-# BUILD FOR LOCAL DEVELOPMENT
-###################
+ARG NODE_VERSION=16.13-alpine
 
-FROM node:18-alpine As development
+###########
+# INSTALL #
+###########
 
-WORKDIR /usr/src/app
+FROM node:${NODE_VERSION} As install
 
-COPY --chown=node:node package*.json ./
+WORKDIR /home/node/api
 
-RUN npm ci
+COPY ./tsconfig*.json ./package*.json ./
 
-COPY --chown=node:node . .
+RUN npm i @nestjs/cli @angular/cli \
+    && npm ci \ 
+    && npm cache clean --force
+
+#########
+# BUILD #
+#########
+
+FROM node:${NODE_VERSION} As build
 
 USER node
 
-###################
-# BUILD FOR PRODUCTION
-###################
+WORKDIR /home/node/api
 
-FROM node:18-alpine As build
+COPY ./tsconfig*.json ./package*.json ./
 
-WORKDIR /usr/src/app
+COPY --from=install /home/node/api/node_modules ./node_modules
 
-COPY --chown=node:node package*.json ./
+COPY . .
 
-COPY --chown=node:node --from=development /usr/src/app/node_modules ./node_modules
-
-COPY --chown=node:node . .
-
-RUN npm run build
+RUN chown -R node:node /home/node
 
 ENV NODE_ENV production
 
 RUN npm ci --only=production && npm cache clean --force
 
+RUN npm run setup && npm prune --production
+
+RUN npm run build
+
+##############
+# PRODUCTION #
+##############
+
+FROM node:${NODE_VERSION} As production
+
+WORKDIR /home/node/api
+
 USER node
 
-###################
-# PRODUCTION
-###################
+COPY --from=build /home/node/api/node_modules ./node_modules
+COPY --from=build /home/node/api/dist ./dist
 
-FROM node:18-alpine As production
+ENV PATH="$PATH:/home/node/api/node_modules/.bin"
 
-COPY --chown=node:node --from=build /usr/src/app/node_modules ./node_modules
-COPY --chown=node:node --from=build /usr/src/app/dist ./dist
+RUN chown -R node:node /home/node
 
-CMD [ "node", "dist/main.js" ]
+ENV NODE_ENV production
+
+CMD [ "node", "dist/src/main.js" ]
